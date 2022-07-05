@@ -81,9 +81,11 @@ const path = require('path');
 function discordWeb() {
     const embed = new MessageEmbed()
         .setTitle('PBE Status')
+        .setDescription("Una nueva versión ha llegado al PBE.")
         .setColor("#d13739")
-        .addField("**Estado:**", "✅ Activo", false)
-        .setThumbnail("https://pentagram-production.imgix.net/cc7fa9e7-bf44-4438-a132-6df2b9664660/EMO_LOL_02.jpg?rect=0%2C0%2C1440%2C1512&w=640&crop=1&fm=jpg&q=70&auto=format&fit=crop&h=672");
+        .addField("💻 **Estado:**", "✅ Activo", false)
+        .setThumbnail("https://pentagram-production.imgix.net/cc7fa9e7-bf44-4438-a132-6df2b9664660/EMO_LOL_02.jpg?rect=0%2C0%2C1440%2C1512&w=640&crop=1&fm=jpg&q=70&auto=format&fit=crop&h=672")
+        .setImage("https://thumbs.gfycat.com/SadPracticalAmericantoad-size_restricted.gif");
 
     webhookClient.send({
         content: 'Mensaje Automático para <@566648602429227028>',
@@ -96,7 +98,7 @@ function discordWeb() {
     console.log()
 }
 
-function Alerta() {
+function AlertPBE() {
     notifier.notify({
         title: 'PBE BOT Status',
         message: 'Nuevo PBE de League of Legends',
@@ -105,10 +107,19 @@ function Alerta() {
       });
 }
 
+function AlertReboot() {
+    notifier.notify({
+        title: 'PBE BOT',
+        message: 'El reboot ha sido ejecutado, abre de nuevo el ejecutable',
+        icon: path.join(__dirname, 'riotgames.jpg'),
+        sound: true,
+      });
+}
+
 function twitteo() {
     client.post('statuses/update', {status: '🤖 Tweet Automático | Rush Api\nNuevo PBE de League of Legends'},  function(error, tweet, response) {
         if(error) throw error;
-        console.log('🐦 TWITTER || 🛑 \033[36m Tweet no enviado \033[0m');  // Tweet body.
+        console.log();  // Tweet body.
         console.log();  // Raw response object.
       });
       console.log('🐦 TWITTER || ✅ \033[36m Tweet enviado \033[0m')
@@ -130,6 +141,7 @@ function pedirDatos() {
                     console.log()
                     console.log("------------------------------------------")
                     console.log()
+                    
                 
                     
                 } else {
@@ -140,7 +152,7 @@ function pedirDatos() {
                   if (dcms == 0) {
                     discordWeb()
                     twitteo()
-                    Alerta()
+                    AlertPBE()
 
                     dcms = 1;
                 }
@@ -163,7 +175,10 @@ function pedirDatos() {
 function rebootAc() {
     if (reeboot == true) {
         console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m')
-        process.exit();
+        AlertReboot();
+        setTimeout(() => {
+            process.exit();
+        }, 2000)
     } else {
         console.log('🔃 REBOOT || 🛑 \033[31m Desactivado \033[0m')
         console.log()
