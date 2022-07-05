@@ -3,19 +3,19 @@ const {
     MessageEmbed,
     WebhookClient
 } = require('discord.js');
-const config = require("./config.json");
-const id = config.id;
-const token = config.token;
+require('dotenv').config()
+const id = process.env.ID;
+const token = process.env.TOKEN;
 const webhookClient = new WebhookClient({
     'id': id,
     'token': token
 });
 var Twitter = require('twitter');
 var client = new Twitter({
-    consumer_key: config.consumerkey,
-    consumer_secret: config.consumersecret,
-    access_token_key: config.accesstokenkey,
-    access_token_secret: config.accesstokensecret
+    consumer_key: process.env.CONSUMERKEY,
+    consumer_secret: process.env.CONSUMERSECRET,
+    access_token_key: process.env.ACCESSTOKENKEY,
+    access_token_secret: process.env.ACCESSTOKENSECRET
   });
 /*
 async function versionLol() {
@@ -114,6 +114,7 @@ function pedirDatos() {
                     console.log()
                     console.log("------------------------------------------")
                     console.log()
+                
                     
                 } else {
                   console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
