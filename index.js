@@ -103,7 +103,7 @@ function discordWeb() {
     console.log()
 }
 
-function AlertPBE() {
+function alertPBE() {
     notifier.notify({
         title: 'PBE BOT Status',
         message: 'Nuevo PBE de League of Legends',
@@ -112,7 +112,7 @@ function AlertPBE() {
       });
 }
 
-function AlertReboot() {
+function alertReboot() {
     notifier.notify({
         title: 'PBE BOT',
         message: 'El reboot ha sido ejecutado, abre de nuevo el ejecutable',
@@ -168,7 +168,7 @@ function pedirDatos() {
                   if (dcms == 0) {
                     discordWeb()
                     twitteo()
-                    AlertPBE()
+                    alertPBE()
                     console.log("------------------------------------------")
 
                     dcms = 1;
@@ -203,7 +203,7 @@ let tmen = 0;
 function rebootAc() {
     if (reeboot == true) {
         console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m')
-        AlertReboot();
+        alertReboot();
         setTimeout(() => {
             process.exit();
         }, 2000)
