@@ -37,6 +37,18 @@ async function versionLol() {
         
 }
 */
+//config
+var reeboot = true;
+
+function estadoFuncion(reb) {
+    if (reb == true) {
+        reb = "✅";
+        return reb;
+    } else {
+        reb = "🛑";
+        return reb;
+    }
+}
 
 //https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/PBE1?q[artifact_type_id]=lol-game-client&q[platform]=windows
 
@@ -54,9 +66,13 @@ console.log("| 🕛 HORA || " + now.toLocaleDateString() + "     |");
 console.log("|                         |")
 console.log("| ⏱️ INTERVAL || 5 min    |")
 console.log("|                         |")
+console.log("| 🔃 REBOOT || " + estadoFuncion(reeboot) + "         |") 
 console.log("---------------------------")
 console.log()
 //console.log("VERSIÓN || " +  versionLol())
+
+
+
 
 const notifier = require('node-notifier');
 const path = require('path');
@@ -92,11 +108,11 @@ function Alerta() {
 function twitteo() {
     client.post('statuses/update', {status: '🤖 Tweet Automático | Rush Api\nNuevo PBE de League of Legends'},  function(error, tweet, response) {
         if(error) throw error;
-        console.log();  // Tweet body.
+        console.log('🐦 TWITTER || 🛑 \033[36m Tweet no enviado \033[0m');  // Tweet body.
         console.log();  // Raw response object.
       });
       console.log('🐦 TWITTER || ✅ \033[36m Tweet enviado \033[0m')
-        console.log()
+      console.log()
 }
 
 
@@ -144,13 +160,17 @@ function pedirDatos() {
     });
 }
 
-var cp = require('child_process');
-function reboot() {
-    var ls = cp.spawn('node', ['reboot.js']);
-    process.exit()
+function rebootAc() {
+    if (reeboot == true) {
+        console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m')
+        process.exit();
+    } else {
+        console.log('🔃 REBOOT || 🛑 \033[31m Desactivado \033[0m')
+        console.log()
+    }
 }
 
 
 
 setInterval(pedirDatos, 300000)
-setInterval(reboot, 10800000)
+setInterval(rebootAc, 10800000)
