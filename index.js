@@ -69,7 +69,7 @@ console.log('| 💻 ESTADO || ' + estadoFuncion(estado) + "         |")
 console.log("|                         |")
 console.log("| 🗓️ FECHA || " + now.toLocaleDateString() + "    |");
 console.log("|                         |")
-console.log("| 🕛 HORA || " + horas + "      |");
+console.log("| 🕛 HORA || " + horas + "       |");
 console.log("|                         |")
 console.log("| ⏱️ INTERVAL || 5 min    |")
 console.log("|                         |")
@@ -133,7 +133,7 @@ function twitteo() {
       console.log()
 }
 
-
+let consm = 0;
 let tiempos = 0;
 let dcms = 0;
 function pedirDatos() {
@@ -143,7 +143,7 @@ function pedirDatos() {
             if (estado == true) {
                 console.log("📥 DATA || \033[33m Informacion recibida \033[0m")
                 console.log()
-                if (response.data.maintenances = []) {
+                if (!response.data.maintenances[0]) {
                     console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m')
                     console.log()
                     console.log("------------------------------------------")
@@ -154,10 +154,16 @@ function pedirDatos() {
             
         
                 } else {
-                  console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
-                  console.log()
-                  console.log("------------------------------------------")
-                  console.log()
+                  if (consm == 0) {
+                    console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
+                    console.log()
+                    console.log("------------------------------------------")
+                    console.log()
+                    consm = 1;
+                  }
+                  if (consm = 1) {
+                    
+                  }
                   if (dcms == 0) {
                     discordWeb()
                     twitteo()
