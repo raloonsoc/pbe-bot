@@ -107,7 +107,7 @@ function AlertPBE() {
     notifier.notify({
         title: 'PBE BOT Status',
         message: 'Nuevo PBE de League of Legends',
-        icon: path.join(__dirname, 'riotgames.jpg'),
+        icon: path.join(__dirname + "/assets", 'riotgames.jpg'),
         sound: true,
       });
 }
@@ -116,7 +116,7 @@ function AlertReboot() {
     notifier.notify({
         title: 'PBE BOT',
         message: 'El reboot ha sido ejecutado, abre de nuevo el ejecutable',
-        icon: path.join(__dirname, 'riotgames.jpg'),
+        icon: path.join(__dirname + "/assets", 'riotgames.jpg'),
         sound: true,
       });
 }
