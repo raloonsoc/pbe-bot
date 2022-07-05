@@ -38,6 +38,8 @@ async function versionLol() {
 }
 */
 
+//https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/PBE1?q[artifact_type_id]=lol-game-client&q[platform]=windows
+
 console.log("***************************")
 console.log("| Discord and PBE Bot     |")
 console.log("***************************")
