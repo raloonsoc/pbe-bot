@@ -191,6 +191,7 @@ function pedirDatos() {
     });
 }
 
+let tmen = 0;
 function rebootAc() {
     if (reeboot == true) {
         console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m')
@@ -199,12 +200,19 @@ function rebootAc() {
             process.exit();
         }, 2000)
     } else {
-        console.log('🔃 REBOOT || 🛑 \033[31m Desactivado \033[0m')
-        console.log()
+        if (tmen == 0) {
+            console.log('🔃 REBOOT || 🛑 \033[31m Desactivado \033[0m')
+            console.log()
+            tmen = 1;
+        }
+        if (tmen == 1) {
+            return;
+        }
     }
 }
 
 
 //300000
+//10800000
 setInterval(pedirDatos, 300000)
 setInterval(rebootAc, 10800000)
