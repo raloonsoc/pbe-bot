@@ -141,8 +141,13 @@ function pedirDatos() {
         .then(function(response) {
                 // handle success
             if (estado == true) {
-                console.log("📥 DATA || \033[33m Informacion recibida \033[0m")
-                console.log()
+                if (consm == 0) {
+                    console.log("📥 DATA || \033[33m Informacion recibida \033[0m")
+                    console.log()
+                }
+                if (consm == 1) {
+
+                }
                 if (!response.data.maintenances[0]) {
                     console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m')
                     console.log()
