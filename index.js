@@ -39,6 +39,7 @@ async function versionLol() {
 */
 //config
 var reeboot = true;
+var estado = true;
 
 function estadoFuncion(reb) {
     if (reb == true) {
@@ -57,12 +58,18 @@ console.log("| Discord and PBE Bot     |")
 console.log("***************************")
 console.log()
 let now = new Date();
+let hora = now.getHours();
+let minutos = now.getMinutes();
+let segundos = now.getSeconds();
+let horas = `${hora}:${minutos}:${segundos}`;
 console.log("---------------------------")
 console.log("|⚙️ Configuración del bot |")
 console.log("---------------------------")
-console.log('| 💻 ESTADO || ✅         |')
+console.log('| 💻 ESTADO || ' + estadoFuncion(estado) + "         |")
 console.log("|                         |")
-console.log("| 🕛 HORA || " + now.toLocaleDateString() + "     |");
+console.log("| 🗓️ FECHA || " + now.toLocaleDateString() + "    |");
+console.log("|                         |")
+console.log("| 🕛 HORA || " + horas + "      |");
 console.log("|                         |")
 console.log("| ⏱️ INTERVAL || 5 min    |")
 console.log("|                         |")
@@ -127,13 +134,13 @@ function twitteo() {
 }
 
 
-
+let tiempos = 0;
 let dcms = 0;
 function pedirDatos() {
     axios.get('https://lol.secure.dyn.riotcdn.net/channels/public/x/status/pbe.json')
         .then(function(response) {
                 // handle success
-
+            if (estado == true) {
                 console.log("📥 DATA || \033[33m Informacion recibida \033[0m")
                 console.log()
                 if (response.data.maintenances = []) {
@@ -143,7 +150,9 @@ function pedirDatos() {
                     console.log()
                     
                 
-                    
+                
+            
+        
                 } else {
                   console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
                   console.log()
@@ -162,6 +171,16 @@ function pedirDatos() {
                 }
                     
                 }
+            } else {
+               if (tiempos == 0) {
+                console.log('💻 ESTADO || 🛑 \033[31m Modo desactivado \033[0m')
+                console.log()
+                tiempos = 1;
+               }
+               if (tiempos == 1) {
+                return;
+               }
+            }
         })
 .catch(function(error) {
         // handle error
@@ -186,6 +205,6 @@ function rebootAc() {
 }
 
 
-
+//300000
 setInterval(pedirDatos, 300000)
 setInterval(rebootAc, 10800000)
