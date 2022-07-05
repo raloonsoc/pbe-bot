@@ -58,10 +58,8 @@ console.log("| Discord and PBE Bot     |")
 console.log("***************************")
 console.log()
 let now = new Date();
-let hora = now.getHours();
-let minutos = now.getMinutes();
-let segundos = now.getSeconds();
-let horas = `${hora}:${minutos}:${segundos}`;
+let hora = now.toTimeString();
+let horas = hora.split(' ')[0];
 console.log("---------------------------")
 console.log("|⚙️ Configuración del bot |")
 console.log("---------------------------")
@@ -69,7 +67,7 @@ console.log('| 💻 ESTADO || ' + estadoFuncion(estado) + "         |")
 console.log("|                         |")
 console.log("| 🗓️ FECHA || " + now.toLocaleDateString() + "    |");
 console.log("|                         |")
-console.log("| 🕛 HORA || " + horas + "       |");
+console.log("| 🕛 HORA || " + horas + "     |");
 console.log("|                         |")
 console.log("| ⏱️ INTERVAL || 5 min    |")
 console.log("|                         |")
