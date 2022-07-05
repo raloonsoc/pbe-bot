@@ -160,8 +160,6 @@ function pedirDatos() {
                   if (consm == 0) {
                     console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
                     console.log()
-                    console.log("------------------------------------------")
-                    console.log()
                     consm = 1;
                   }
                   if (consm = 1) {
@@ -171,6 +169,7 @@ function pedirDatos() {
                     discordWeb()
                     twitteo()
                     AlertPBE()
+                    console.log("------------------------------------------")
 
                     dcms = 1;
                 }
