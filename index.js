@@ -38,9 +38,9 @@ async function versionLol() {
 }
 */
 
-console.log("**************************")
-console.log("| Discord and PBE Bot    |")
-console.log("**************************")
+console.log("***************************")
+console.log("| Discord and PBE Bot     |")
+console.log("***************************")
 console.log()
 let now = new Date();
 console.log("---------------------------")
@@ -74,7 +74,7 @@ function discordWeb() {
         embeds: [embed],
     })
 
-    console.log('DISCORD || ✅ \033[34m Mensaje enviado \033[0m')
+    console.log('📨 DISCORD || ✅ \033[34m Mensaje enviado \033[0m')
     console.log()
 }
 
@@ -93,7 +93,7 @@ function twitteo() {
         console.log();  // Tweet body.
         console.log();  // Raw response object.
       });
-      console.log('TWITTER || ✅ \033[36m Tweet enviado \033[0m')
+      console.log('🐦 TWITTER || ✅ \033[36m Tweet enviado \033[0m')
         console.log()
 }
 
@@ -105,14 +105,14 @@ function pedirDatos() {
         .then(function(response) {
                 // handle success
 
-                console.log("DATA || \033[33m Informacion recibida \033[0m")
+                console.log("📥 DATA || \033[33m Informacion recibida \033[0m")
                 console.log()
                 if (response.data.maintenances = []) {
-                    console.log('ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m')
+                    console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m')
                     console.log()
                     
                 } else {
-                  console.log('ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
+                  console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
                   console.log()
                   if (dcms == 0) {
                     discordWeb()
