@@ -112,9 +112,13 @@ function pedirDatos() {
                 if (response.data.maintenances = []) {
                     console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m')
                     console.log()
+                    console.log("------------------------------------------")
+                    console.log()
                     
                 } else {
                   console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
+                  console.log()
+                  console.log("------------------------------------------")
                   console.log()
                   if (dcms == 0) {
                     discordWeb()
