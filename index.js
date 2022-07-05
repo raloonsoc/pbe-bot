@@ -53,27 +53,27 @@ function estadoFuncion(reb) {
 
 //https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/PBE1?q[artifact_type_id]=lol-game-client&q[platform]=windows
 
-console.log("***************************")
-console.log("| Discord and PBE Bot     |")
-console.log("***************************")
-console.log()
+console.log("***************************");
+console.log("| Discord and PBE Bot     |");
+console.log("***************************");
+console.log();
 let now = new Date();
 let hora = now.toTimeString();
 let horas = hora.split(' ')[0];
-console.log("---------------------------")
-console.log("|⚙️ Configuración del bot |")
-console.log("---------------------------")
-console.log('| 💻 ESTADO || ' + estadoFuncion(estado) + "         |")
-console.log("|                         |")
+console.log("---------------------------");
+console.log("|⚙️ Configuración del bot |");
+console.log("---------------------------");
+console.log('| 💻 ESTADO || ' + estadoFuncion(estado) + "         |");
+console.log("|                         |");
 console.log("| 🗓️ FECHA || " + now.toLocaleDateString() + "    |");
-console.log("|                         |")
+console.log("|                         |");
 console.log("| 🕛 HORA || " + horas + "     |");
-console.log("|                         |")
-console.log("| ⏱️ INTERVAL || 5 min    |")
-console.log("|                         |")
-console.log("| 🔃 REBOOT || " + estadoFuncion(reeboot) + "         |") 
-console.log("---------------------------")
-console.log()
+console.log("|                         |");
+console.log("| ⏱️ INTERVAL || 5 min    |");
+console.log("|                         |");
+console.log("| 🔃 REBOOT || " + estadoFuncion(reeboot) + "         |"); 
+console.log("---------------------------");
+console.log();
 //console.log("VERSIÓN || " +  versionLol())
 
 
@@ -99,8 +99,8 @@ function discordWeb() {
         embeds: [embed],
     })
 
-    console.log('📨 DISCORD || ✅ \033[34m Mensaje enviado \033[0m')
-    console.log()
+    console.log('📨 DISCORD || ✅ \033[34m Mensaje enviado \033[0m');
+    console.log();
 }
 
 function alertPBE() {
@@ -127,8 +127,8 @@ function twitteo() {
         console.log();  // Tweet body.
         console.log();  // Raw response object.
       });
-      console.log('🐦 TWITTER || ✅ \033[36m Tweet enviado \033[0m')
-      console.log()
+      console.log('🐦 TWITTER || ✅ \033[36m Tweet enviado \033[0m');
+      console.log();
 }
 
 let consm = 0;
@@ -140,17 +140,17 @@ function pedirDatos() {
                 // handle success
             if (estado == true) {
                 if (consm == 0) {
-                    console.log("📥 DATA || \033[33m Informacion recibida \033[0m")
-                    console.log()
+                    console.log("📥 DATA || \033[33m Informacion recibida \033[0m");
+                    console.log();
                 }
                 if (consm == 1) {
 
                 }
                 if (!response.data.maintenances[0]) {
-                    console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m')
-                    console.log()
-                    console.log("------------------------------------------")
-                    console.log()
+                    console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m');
+                    console.log();
+                    console.log("------------------------------------------");
+                    console.log();
                     
                 
                 
@@ -158,18 +158,18 @@ function pedirDatos() {
         
                 } else {
                   if (consm == 0) {
-                    console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m')
-                    console.log()
+                    console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m');
+                    console.log();
                     consm = 1;
                   }
                   if (consm = 1) {
                     
                   }
                   if (dcms == 0) {
-                    discordWeb()
-                    twitteo()
-                    alertPBE()
-                    console.log("------------------------------------------")
+                    discordWeb();
+                    twitteo();
+                    alertPBE();
+                    console.log("------------------------------------------");
 
                     dcms = 1;
                 }
@@ -181,8 +181,8 @@ function pedirDatos() {
                 }
             } else {
                if (tiempos == 0) {
-                console.log('💻 ESTADO || 🛑 \033[31m Modo desactivado \033[0m')
-                console.log()
+                console.log('💻 ESTADO || 🛑 \033[31m Modo desactivado \033[0m');
+                console.log();
                 tiempos = 1;
                }
                if (tiempos == 1) {
@@ -202,15 +202,15 @@ function pedirDatos() {
 let tmen = 0;
 function rebootAc() {
     if (reeboot == true) {
-        console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m')
+        console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m');
         alertReboot();
         setTimeout(() => {
             process.exit();
         }, 2000)
     } else {
         if (tmen == 0) {
-            console.log('🔃 REBOOT || 🛑 \033[31m Desactivado \033[0m')
-            console.log()
+            console.log('🔃 REBOOT || 🛑 \033[31m Desactivado \033[0m');
+            console.log();
             tmen = 1;
         }
         if (tmen == 1) {
@@ -222,5 +222,5 @@ function rebootAc() {
 
 //300000
 //10800000
-setInterval(pedirDatos, 300000)
-setInterval(rebootAc, 10800000)
+setInterval(pedirDatos, 300000);
+setInterval(rebootAc, 10800000);
