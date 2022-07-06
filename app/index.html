@@ -7,10 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
+    <script>
+      methods: {
+      
+                  function buttonClose() {
+                      window.close();
+                  }
+      }
+      </script>
 </head>
 <body>
+  <a href="#" class="close" tabindex="0" role="button" onclick="buttonClose()">close</a>
     <h1 id="textop">PBE BOT</h1>
-    <h1 id="textoconf">Configuración</h1>
+    <h3 id="fecha"></h3>
+    <h2 id="texto-estad"></h2>
+    <h2 id="texto-reboot"></h2>
+    <h2 id="texto-reboot"></h2>
+    <h1 id="textoconf">⚙️ Configuración</h1>
 <div class="switch1">
     <h2 id="estado-text">Estado </h2>
     <label class="switch">
@@ -22,7 +36,7 @@
      <div class="switch2">
         <h2 id="reboot-text">Reboot </h2>
       <label class="switch">
-        <input type="checkbox">
+        <input type="checkbox" id="switch_reboot">
         <span class="slider round"></span>
       </label>
       </div>

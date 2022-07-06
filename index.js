@@ -38,21 +38,9 @@ async function versionLol() {
 }
 */
 //configurable!
-var reeboot = true;
-var estado = true;
-
-function estadoFuncion(reb) {
-    if (reb == true) {
-        reb = "✅";
-        return reb;
-    } else {
-        reb = "🛑";
-        return reb;
-    }
-}
 
 //https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/PBE1?q[artifact_type_id]=lol-game-client&q[platform]=windows
-
+/*
 console.log("***************************");
 console.log("| Discord and PBE Bot     |");
 console.log("***************************");
@@ -76,6 +64,48 @@ console.log("---------------------------");
 console.log();
 //console.log("VERSIÓN || " +  versionLol())
 
+*/
+var reeboot = true;
+var estado = true;
+
+function estadoFuncion(reb) {
+    if (reb == true) {
+        reb = "✅";
+        return reb;
+    } else {
+        reb = "🛑";
+        return reb;
+    }
+}
+/*
+function createPanel() {
+    window.onload = function() {
+        var x = document.getElementById("zorra");
+        x.innerText = `Estado: ${estadoFuncion(estado)}`;
+    }
+    
+}
+*/
+/*
+var reeboot;
+var estado;
+
+if (document.getElementById("switch_reboot").spellcheck == true) {
+    var reeboot = true;
+} else {
+    var reeboot = false;
+}
+
+function estadoFuncion(reb) {
+    if (reb == true) {
+        reb = "✅";
+        return reb;
+    } else {
+        reb = "🛑";
+        return reb;
+    }
+}
+*/
 
 
 //Electron
@@ -100,15 +130,18 @@ const {app, BrowserWindow} = require('electron')
     const win = new BrowserWindow(winsettings)
   
     win.loadFile('./app/index.html')
+    
   }
   
   
   app.whenReady().then(() => {
     createWindow()
-  
+    
+    
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) {
         createWindow()
+        
       }
     })
   })
@@ -120,11 +153,11 @@ const {app, BrowserWindow} = require('electron')
   })
 
 
-
-
+ 
 const notifier = require('node-notifier');
 const path = require('path');
 const { resolve } = require('path');
+const { Console } = require('console');
 
 
 function discordWeb() {
@@ -291,8 +324,12 @@ function rebootAc() {
     }
 }
 
+function reloadW() {
+    app.reload();
+}
 
 //300000
 //10800000
 setInterval(pedirDatos, 300000);
 setInterval(rebootAc, 10800000);
+
