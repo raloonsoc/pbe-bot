@@ -114,7 +114,7 @@ const {app, BrowserWindow} = require('electron')
   const winsettings = {
     width: 300,
     height: 500,
-    icon: __dirname + "/assets/league of legends.ico",
+    icon: __dirname + "/assets/logo2.ico",
     webPreferences: {
       devTools: true,
       nodeIntegration: true,
