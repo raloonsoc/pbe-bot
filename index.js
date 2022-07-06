@@ -81,6 +81,7 @@ console.log();
 
 const notifier = require('node-notifier');
 const path = require('path');
+const { resolve } = require('path');
 
 
 function discordWeb() {
@@ -130,7 +131,26 @@ function twitteo() {
       console.log('🐦 TWITTER || ✅ \033[36m Tweet enviado \033[0m');
       console.log();
 }
-
+//response.data.releases[1].download.url
+/*
+async function manifesURL() {
+    await axios.get('https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/PBE1?q[artifact_type_id]=lol-game-client&q[platform]=windows')
+    .then( function(response) {
+            return fetch(response.data.releases[1].download.url).then((response) => {
+                return response;
+            })
+    })  
+    .catch( function(error) {
+        // handle error
+        console.log(error);
+    })
+    .then( function() {
+        // always executed
+    });
+    
+        
+}
+*/
 let consm = 0;
 let tiempos = 0;
 let dcms = 0;
