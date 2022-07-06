@@ -2,9 +2,9 @@
   "name": "pbestatus",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "node index.js",
+    "test": "node main.js",
     "start": "electron ."
   },
   "keywords": [],
