@@ -37,7 +37,7 @@ async function versionLol() {
         
 }
 */
-//config
+//configurable 
 var reeboot = true;
 var estado = true;
 
