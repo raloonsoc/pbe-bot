@@ -122,6 +122,15 @@ function alertReboot() {
       });
 }
 
+function alertManifest() {
+    notifier.notify({
+        title: 'PBE BOT',
+        message: 'Manifest descargado y reemplazado',
+        icon: path.join(__dirname + "/assets", 'league.jpg'),
+        sound: true,
+      });
+}
+
 function twitteo() {
     client.post('statuses/update', {status: '🤖 Tweet Automático | Rush Api\nNuevo PBE de League of Legends'},  function(error, tweet, response) {
         if(error) throw error;
