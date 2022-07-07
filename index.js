@@ -38,70 +38,10 @@ async function versionLol() {
         
 }
 */
-//configurable!
-
-//https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/PBE1?q[artifact_type_id]=lol-game-client&q[platform]=windows
-/*
-console.log("***************************");
-console.log("| Discord and PBE Bot     |");
-console.log("***************************");
-console.log();
-let now = new Date();
-let hora = now.toTimeString();
-let horas = hora.split(' ')[0];
-console.log("---------------------------");
-console.log("|⚙️ Configuración del bot |");
-console.log("---------------------------");
-console.log('| 💻 ESTADO || ' + estadoFuncion(estado) + "         |");
-console.log("|                         |");
-console.log("| 🗓️ FECHA || " + now.toLocaleDateString() + "    |");
-console.log("|                         |");
-console.log("| 🕛 HORA || " + horas + "     |");
-console.log("|                         |");
-console.log("| ⏱️ INTERVAL || 5 min    |");
-console.log("|                         |");
-console.log("| 🔃 REBOOT || " + estadoFuncion(reeboot) + "         |"); 
-console.log("---------------------------");
-console.log();
-//console.log("VERSIÓN || " +  versionLol())
-
-*/
 var reeboot = false;
 var estado = true;
 
 
-/*
-function createPanel() {
-    window.onload = function() {
-        var x = document.getElementById("zorra");
-        x.innerText = `Estado: ${estadoFuncion(estado)}`;
-    }
-    
-}
-*/
-/*
-var reeboot;
-var estado;
-
-if (document.getElementById("switch_reboot").spellcheck == true) {
-    var reeboot = true;
-} else {
-    var reeboot = false;
-}
-
-function estadoFuncion(reb) {
-    if (reb == true) {
-        reb = "✅";
-        return reb;
-    } else {
-        reb = "🛑";
-        return reb;
-    }
-}
-*/
-
-
-//Electron
 
 
 
