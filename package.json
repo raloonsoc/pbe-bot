@@ -1,14 +1,14 @@
 {
   "name": "pbestatus",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.5.0",
+  "description": "pbe bot",
   "main": "main.js",
   "scripts": {
     "test": "node main.js",
     "start": "electron ."
   },
   "keywords": [],
-  "author": "",
+  "author": "RushWTF",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",

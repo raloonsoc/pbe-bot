@@ -1,6 +1,8 @@
 let reeboot = true;
 let estado = true;
 
+
+
 function estadoFuncion(reb) {
 	if (reb == true) {
 		reb = "✅";
@@ -21,7 +23,7 @@ window.onload = function() {
 	var y = document.getElementById("texto-reboot");
 	y.innerText = `🔃 Reboot: ${estadoFuncion(reeboot)}`;
 	var z = document.getElementById("fecha");
-	z.innerText = '🗓️ Fecha: ' + now.toLocaleDateString() + " " + " || 🕛 " + horas + "";
-	var boton = document.getElementById("close");
-	boton.onclick = app.exit();
+	z.innerText = '🗓️ Fecha: ' + now.toLocaleDateString() + " " + "   || 🕛 " + horas + "";
+	var e = document.getElementById("texto-pbe");
+	e.innerText = `📥 PBE: ${estadoFuncion(datoss)}`
 }

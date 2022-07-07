@@ -17,6 +17,7 @@ var client = new Twitter({
 	access_token_key: process.env.ACCESSTOKENKEY,
 	access_token_secret: process.env.ACCESSTOKENSECRET
 });
+
 /*
 async function versionLol() {
     await axios.get('https://ddragon.leagueoflegends.com/api/versions.json')
@@ -65,7 +66,7 @@ console.log();
 //console.log("VERSIÓN || " +  versionLol())
 
 */
-var reeboot = true;
+var reeboot = false;
 var estado = true;
 
 
@@ -196,6 +197,7 @@ let consm = 0;
 let tiempos = 0;
 let dcms = 0;
 
+
 function pedirDatos() {
 	axios.get('https://lol.secure.dyn.riotcdn.net/channels/public/x/status/pbe.json')
 		.then(function(response) {
@@ -282,11 +284,11 @@ function rebootAc() {
 	}
 }
 
-function reloadW() {
-	app.reload();
-}
 
 //300000
 //10800000
-setInterval(pedirDatos, 300000);
-setInterval(rebootAc, 10800000);
+
+
+module.exports = pedirDatos();
+module.exports = rebootAc();
+

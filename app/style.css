@@ -154,3 +154,9 @@ input:checked+.slider:before {
 ::-webkit-scrollbar {
 	display: none;
 }
+
+#texto-pbe {
+	font-family: 'Asap Condensed', sans-serif;
+	color: white;
+	display: inline-block;	
+}

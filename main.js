@@ -1,3 +1,5 @@
+module.exports = require('./index.js')
+
 const {
 	app,
 	BrowserWindow
@@ -43,3 +45,6 @@ app.on('window-all-closed', () => {
 		app.quit()
 	}
 })
+
+setInterval(pedirDatos, 300);
+setInterval(rebootAc, 10800000);
