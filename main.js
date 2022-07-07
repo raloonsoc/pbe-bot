@@ -1,4 +1,4 @@
-module.exports = require('./index.js')
+const exported = require('./index')
 
 const {
 	app,
@@ -10,7 +10,7 @@ const winsettings = {
 	height: 500,
 	icon: __dirname + "/assets/mantenimiento-web.ico",
 	webPreferences: {
-		devTools: false,
+		devTools: true,
 		nodeIntegration: true,
 	},
 	autoHideMenuBar: true,
@@ -22,16 +22,13 @@ const winsettings = {
 
 const createWindow = () => {
 	const win = new BrowserWindow(winsettings)
-
 	win.loadFile('./app/index.html')
-
 }
 
 
 app.whenReady().then(() => {
+	exported.pedirDatos();
 	createWindow()
-
-
 	app.on('activate', () => {
 		if (BrowserWindow.getAllWindows().length === 0) {
 			createWindow()
@@ -46,5 +43,5 @@ app.on('window-all-closed', () => {
 	}
 })
 
-setInterval(pedirDatos, 300);
-setInterval(rebootAc, 10800000);
+setInterval(exported.pedirDatos, 300000);
+setInterval(exported.rebootAc, 10800000);

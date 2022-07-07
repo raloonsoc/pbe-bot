@@ -193,12 +193,13 @@ async function manifesURL() {
         
 }
 */
+
+
 let consm = 0;
 let tiempos = 0;
 let dcms = 0;
 
-
-function pedirDatos() {
+module.exports.pedirDatos = function pedirDatos() {
 	axios.get('https://lol.secure.dyn.riotcdn.net/channels/public/x/status/pbe.json')
 		.then(function(response) {
 			// handle success
@@ -263,9 +264,14 @@ function pedirDatos() {
 		});
 }
 
+
+
+
+//300000
+//10800000
 let tmen = 0;
 
-function rebootAc() {
+module.exports.rebootAc = function rebootAc() {
 	if (reeboot == true) {
 		console.log('🔃 REBOOT || ✅ \033[32m Activado \033[0m');
 		alertReboot();
@@ -283,12 +289,4 @@ function rebootAc() {
 		}
 	}
 }
-
-
-//300000
-//10800000
-
-
-module.exports = pedirDatos();
-module.exports = rebootAc();
-
+//module.exports.rebootAc = rebootAc();
