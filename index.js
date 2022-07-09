@@ -18,6 +18,7 @@ var client = new Twitter({
 	access_token_secret: process.env.ACCESSTOKENSECRET
 });
 
+
 /*
 async function versionLol() {
     await axios.get('https://ddragon.leagueoflegends.com/api/versions.json')
@@ -38,11 +39,29 @@ async function versionLol() {
         
 }
 */
+
+
 var reeboot = false;
 var estado = true;
 
 
+const { ipcMain } = require("electron")
 
+	ipcMain.handle("reboot", (event, line) => {
+		reeboot = line;
+		console.log
+		console.log(`Reboot: ${line}`)
+		return `Backend confirms it received: ${line}`
+		
+ 	 })
+
+	  ipcMain.handle("estado", (event, line) => {
+		estado = line;
+		console.log
+		console.log(`Estado: ${line}`)
+		return `Backend confirms it received: ${line}`
+		
+ 	 })
 
 
 const notifier = require('node-notifier');
@@ -139,6 +158,11 @@ let consm = 0;
 let tiempos = 0;
 let dcms = 0;
 
+let pbestado;
+
+console.log(`Estado: ${estado}`)
+console.log(`Reboot: ${reeboot}`)
+
 module.exports.pedirDatos = function pedirDatos() {
 	axios.get('https://lol.secure.dyn.riotcdn.net/channels/public/x/status/pbe.json')
 		.then(function(response) {
@@ -152,10 +176,8 @@ module.exports.pedirDatos = function pedirDatos() {
 
 				}
 				if (!response.data.maintenances[0]) {
-					console.log('💻 ESTADO || 🛑 \033[31m No hay nuevo PBE \033[0m');
-					console.log();
-					console.log("------------------------------------------");
-					console.log();
+					pbestado = false;
+					module.exports.pbestado = pbestado;
 
 
 
@@ -163,9 +185,10 @@ module.exports.pedirDatos = function pedirDatos() {
 
 				} else {
 					if (consm == 0) {
-						console.log('💻 ESTADO || ✅ \033[32m Si hay nuevo PBE \033[0m');
 						console.log();
 						consm = 1;
+						pbestado = true;
+						module.exports.pbestado = pbestado;
 					}
 					if (consm = 1) {
 
@@ -174,7 +197,6 @@ module.exports.pedirDatos = function pedirDatos() {
 						discordWeb();
 						twitteo();
 						alertPBE();
-						console.log("------------------------------------------");
 
 						dcms = 1;
 					}
@@ -229,4 +251,6 @@ module.exports.rebootAc = function rebootAc() {
 		}
 	}
 }
+
+
 //module.exports.rebootAc = rebootAc();

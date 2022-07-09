@@ -1,9 +1,17 @@
-let reboot = document.getElementById("switch_reboot");
-let estado = document.getElementById("switch_estado");
+const { ipcRenderer } = require("electron")
+
+var reboot = document.getElementById("switch_reboot");
+var estado = document.getElementById("switch_estado");
 
 let now = new Date();
 let hora = now.toTimeString();
 let horas = hora.split(' ')[0];
+
+ipcRenderer.on("line", (event, line) => {
+	var e = document.getElementById("texto-pbe");
+	e.innerText = `📥 PBE: ${line ? "✅" : "🛑"}`
+  })
+
 
 window.onload = function () {
 	var x = document.getElementById("texto-estad");
@@ -12,8 +20,7 @@ window.onload = function () {
 	y.innerText = `🔃 Reboot: ${reboot.checked ? "✅" : "🛑"}`;
 	var z = document.getElementById("fecha");
 	z.innerText = '🗓️ Fecha: ' + now.toLocaleDateString() + " " + "   || 🕛 " + horas + "";
-	var e = document.getElementById("texto-pbe");
-	e.innerText = `📥 PBE: ${'a'}`
+	
 }
 
 estado.addEventListener('change', (event) => {
@@ -23,6 +30,7 @@ estado.addEventListener('change', (event) => {
 	} else {
 		x.innerText = `💻 Estado: 🛑`;
 	}
+	ipcRenderer.invoke('estado', event.currentTarget.checked)
 })
 reboot.addEventListener('change', (event) => {
 	var y = document.getElementById("texto-reboot");
@@ -31,4 +39,6 @@ reboot.addEventListener('change', (event) => {
 	} else {
 		y.innerText = `🔃 Reboot: 🛑`;
 	}
+	ipcRenderer.invoke('reboot', event.currentTarget.checked)
 })
+

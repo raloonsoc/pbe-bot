@@ -10,8 +10,11 @@ const winsettings = {
 	height: 500,
 	icon: __dirname + "/assets/mantenimiento-web.ico",
 	webPreferences: {
+		contextIsolation: false,
 		devTools: true,
 		nodeIntegration: true,
+		nodeIntegrationInWorker: true,
+    	enableRemoteModule: true,
 	},
 	autoHideMenuBar: true,
 	frame: false,
@@ -19,10 +22,11 @@ const winsettings = {
 	maximizable: false,
 	fullscreenable: false,
 }
-
+let win;
 const createWindow = () => {
-	const win = new BrowserWindow(winsettings)
+	win = new BrowserWindow(winsettings)
 	win.loadFile('./app/index.html')
+	
 }
 
 
@@ -36,12 +40,15 @@ app.whenReady().then(() => {
 		}
 	})
 })
-
 app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') {
 		app.quit()
 	}
 })
 
+
+
+//10800000
 setInterval(exported.pedirDatos, 300000);
 setInterval(exported.rebootAc, 10800000);
+setInterval(() => win.webContents.send("line", exported.pbestado), 301000) 
