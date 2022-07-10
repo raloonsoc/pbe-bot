@@ -112,7 +112,7 @@ let pbestado;
 
 console.log(`Estado: ${estado}`)
 console.log(`Reboot: ${reeboot}`)
-
+console.log()
 module.exports.pedirDatos = function pedirDatos() {
    axios.get('https://lol.secure.dyn.riotcdn.net/channels/public/x/status/pbe.json')
       .then(function (response) {
