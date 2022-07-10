@@ -5,6 +5,8 @@ const {
    BrowserWindow
 } = require('electron')
 
+app.disableHardwareAcceleration()
+
 const winsettings = {
    width: 300,
    height: 500,

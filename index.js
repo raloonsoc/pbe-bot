@@ -66,7 +66,7 @@ function discordWeb() {
    webhookClient.send({
       content: 'Mensaje Automático para <@566648602429227028>',
       username: 'Máquina Hextech',
-      avatarURL: 'https://videos.cults3d.com/EfoIBY1hde5wSFQNhA2vh5g7VsM=/https://files.cults3d.com/uploaders/19404313/illustration-file/405a741e-90b3-4316-a96a-364bdc11dba1/0001-0100-5.gif',
+      avatarURL: 'https://assets.dicebreaker.com/magic-the-gathering-arcane-secret-lair-art-hextech.png/BROK/thumbnail/1600x900/quality/100/magic-the-gathering-arcane-secret-lair-art-hextech.png',
       embeds: [embed],
    })
 
@@ -119,7 +119,7 @@ module.exports.pedirDatos = function pedirDatos() {
          // handle success
          if (estado == true) {
             if (consm == 0) {
-               console.log(" DATA || \033[33m Informacion recibida \033[0m");
+               console.log("DATA || \033[33m Informacion recibida \033[0m");
                console.log();
             }
             if (consm == 1) {
@@ -155,7 +155,7 @@ module.exports.pedirDatos = function pedirDatos() {
             }
          } else {
             if (tiempos == 0) {
-               console.log(' ESTADO ||  \033[31m Modo desactivado \033[0m');
+               console.log('ESTADO ||  \033[31m Modo desactivado \033[0m');
                console.log();
                tiempos = 1;
             }
@@ -178,14 +178,14 @@ let tmen = 0;
 
 module.exports.rebootAc = function rebootAc() {
    if (reeboot == true) {
-      console.log(' REBOOT ||  \033[32m Activado \033[0m');
+      console.log('REBOOT ||  \033[32m Activado \033[0m');
       alertReboot();
       setTimeout(() => {
          process.exit();
       }, 2000)
    } else {
       if (tmen == 0) {
-         console.log(' REBOOT ||  \033[31m Desactivado \033[0m');
+         console.log('REBOOT ||  \033[31m Desactivado \033[0m');
          console.log();
          tmen = 1;
       }
