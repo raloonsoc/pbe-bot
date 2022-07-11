@@ -1,5 +1,6 @@
 <html>
    <body>
+      <div class="loader"></div>
       <a href="#" class="close" tabindex="0" role="button" onclick="buttonClose()">close</a>
       <img src="https://avatars.githubusercontent.com/RushWTF" alt="Avatar" class="avatar">
       <h1 id="textop">PBE BOT</h1>
@@ -39,5 +40,16 @@
            }
          }
       </script>
+      <script>
+      window.addEventListener("load", () => {
+         const loader = document.querySelector(".loader");
+       
+         loader.classList.add("loader--hidden");
+       
+         loader.addEventListener("transitionend", () => {
+           document.body.removeChild(loader);
+         });
+       });
+       </script>
    </head>
 </html>
